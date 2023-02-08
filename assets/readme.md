@@ -1,0 +1,1 @@
+need to fix one or two bugs with dot density.
