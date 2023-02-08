@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>U.S. covid cases</title>
+    <title>U.S. covid counts </title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet">
@@ -105,8 +105,8 @@ a {
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/dark-v10',
             zoom: 2, // starting zoom
-            minZoom: 4, // minimum zoom level of the map
-            center: [-97, 38] // starting center
+            minZoom: 3.5, // minimum zoom level of the map
+            center: [-97, 40] // starting center
         });
         const grades = [3000, 5000, 7000],
             colors = ['rgb(208,209,230)', 'rgb(103,169,207)', 'rgb(1,108,89)'],
@@ -148,10 +148,10 @@ a {
                 }
             });
             // click on tree to view magnitude in a popup
-            map.on('click', 'earthquakes-point', (event) => {
+            map.on('click', 'cases', (event) => {
                 new mapboxgl.Popup()
                     .setLngLat(event.features[0].geometry.coordinates)
-                    .setHTML(`<strong>Magnitude:</strong> ${event.features[0].properties.mag}`)
+                    .setHTML(`<strong>covid cases:</strong> ${event.features[0].properties.cases}`)
                     .addTo(map);
             });
         });
